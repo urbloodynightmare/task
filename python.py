@@ -11,6 +11,8 @@ with open('file.txt', encoding='UTF-8') as file:
     # Соответственно код станет короче и понятнее
     stringlist = file.readlines()
     for i in range (len(stringlist)-1):
+        # Здесь непонятно использование функции map, у нас сплит строки возращает
+        # список строк, то есть не нужно их преобразовывать с помощью функции str
         second_name, clas, marks = map(str,stringlist[i].split())
         marks = marks.replace('н','')
         marks=[int(i) for i in marks]
