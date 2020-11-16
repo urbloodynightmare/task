@@ -5,7 +5,7 @@ with open('file.txt', encoding='UTF-8') as file:
     norm = []
     notnorm = []
     for line in file:
-        second_name, clas, marks = map(str,line.split())
+        second_name, clas, marks = line.split()
         marks = marks.replace('н','')
         marks=[int(i) for i in marks]
         avrg = []
