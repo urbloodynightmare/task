@@ -24,16 +24,13 @@ with open('data.txt', 'w') as file:
     for i in range(len(norm)):
         if norm[i] in ten:
             file.write('10 ' + norm[i][0] + ' ' + str(norm[i][1]) + '\n')
+    for i in range(len(norm)):        
         if norm[i] in eleven:
             file.write('11 ' + norm[i][0] + ' ' + str(norm[i][1]) + '\n')
     file.write('Неперешедшие порог\n')
     for i in range(len(notnorm)):
         if notnorm[i] in ten:
             file.write('10 ' + notnorm[i][0] + ' ' + str(notnorm[i][1]) + '\n')
-        if norm[i] in eleven:
+    for i in range(len(notnorm)):
+        if notnorm[i] in eleven:
             file.write('11 ' + notnorm[i][0] + ' ' + str(notnorm[i][1]) + '\n')
-            
-            
-        
-            
-        
