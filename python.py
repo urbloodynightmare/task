@@ -1,11 +1,11 @@
-with open('file.txt', 'r', encoding='UTF-8') as file:
+PASSAGE_THRESHOLD = 2.5
+with open('file.txt', encoding='UTF-8') as file:
     ten = []
     eleven = []
     norm = []
     notnorm = []
-    stringlist = file.readlines()
-    for i in range (len(stringlist)-1):
-        second_name, clas, marks = map(str,stringlist[i].split())
+    for line in file:
+        second_name, clas, marks = map(str,line.split())
         marks = marks.replace('н','')
         marks=[int(i) for i in marks]
         avrg = []
@@ -15,22 +15,22 @@ with open('file.txt', 'r', encoding='UTF-8') as file:
             ten.append(avrg)
         else:
             eleven.append(avrg)
-        if avrg[1]<2.5:
+        if avrg[1]<PASSAGE_THRESHOLD:
             notnorm.append(avrg)
         else:
             norm.append(avrg)
 with open('data.txt', 'w') as file:
     file.write('Перешедшие порог\n')
-    for i in range(len(norm)):
-        if norm[i] in ten:
-            file.write('10 ' + norm[i][0] + ' ' + str(norm[i][1]) + '\n')
-    for i in range(len(norm)):        
-        if norm[i] in eleven:
-            file.write('11 ' + norm[i][0] + ' ' + str(norm[i][1]) + '\n')
+    for item in norm:
+        if item in ten:
+            file.write('10 ' + item[0] + ' ' + str(item[1]) + '\n')
+    for item in norm:        
+        if item in eleven:
+            file.write('11 ' + item[0] + ' ' + str(item[1]) + '\n')
     file.write('Неперешедшие порог\n')
-    for i in range(len(notnorm)):
-        if notnorm[i] in ten:
-            file.write('10 ' + notnorm[i][0] + ' ' + str(notnorm[i][1]) + '\n')
-    for i in range(len(notnorm)):
-        if notnorm[i] in eleven:
-            file.write('11 ' + notnorm[i][0] + ' ' + str(notnorm[i][1]) + '\n')
+    for item in notnorm:
+        if item in ten:
+            file.write('10 ' + item[0] + ' ' + str(item[1]) + '\n')
+    for item in notnorm:
+        if item in eleven:
+            file.write('11 ' + item[0] + ' ' + str(item[1]) + '\n')
