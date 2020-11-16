@@ -1,8 +1,14 @@
-with open('file.txt', 'r', encoding='UTF-8') as file:
+# Можно режим чтения файла не указывать, почему, вы помните
+with open('file.txt', encoding='UTF-8') as file:
     ten = []
     eleven = []
     norm = []
     notnorm = []
+    # Здесь можно не использовать функцию readlines
+    # Мы с вами проходили, что объект файла можно использовать в цикле for
+    # Для построчного получения строк, то есть
+    # for line in file, как вариант
+    # Соответственно код станет короче и понятнее
     stringlist = file.readlines()
     for i in range (len(stringlist)-1):
         second_name, clas, marks = map(str,stringlist[i].split())
@@ -15,12 +21,21 @@ with open('file.txt', 'r', encoding='UTF-8') as file:
             ten.append(avrg)
         else:
             eleven.append(avrg)
+        # 2.5 Так называемое магическое число, никто не знает почему именно 2.5 :)
+        # Для таких случае лучше использовать переменные с константными именами,
+        # например, PASSAGE_THRESHOLD = 2.5
+        # И понятнее и если вдруг, данная константа будет использоваться где-то еще
+        # проще будет менять в одном месте.
+        # По наименованию смотрите pep8
         if avrg[1]<2.5:
             notnorm.append(avrg)
         else:
             norm.append(avrg)
 with open('data.txt', 'w') as file:
     file.write('Перешедшие порог\n')
+    # По аналогии с файлами, все последовательности обладают свойством перечисления,
+    # то есть можно написать for item in norm:
+    # Тогда каждую итерацию в переменную item будет записываться элемент списка
     for i in range(len(norm)):
         if norm[i] in ten:
             file.write('10 ' + norm[i][0] + ' ' + str(norm[i][1]) + '\n')
