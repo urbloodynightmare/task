@@ -1,9 +1,10 @@
 import math
 def calc_quadration_equation(a,b,c):
+
     def calc_discriminant(a,b,c):
-        d = b*b - 4*a*c
-        return d
-    d=calc_discriminant(a,b,c)
+        return b*b - 4*a*c
+
+    d = calc_discriminant(a,b,c)
     if d > 0:
         return (-b+math.sqrt(d)) / (2*a), (-b-math.sqrt(d)) / (2*a)
     if d == 0:
