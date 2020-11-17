@@ -13,7 +13,7 @@ def linear_equation(b,c):
     return -c/b
 
 
-a,b,c = map(int,input().split())
+a, b, c = map(int,input('Введитте a, b и c: ').split())
 if a == 0:
     print(linear_equation(b,c))
 else:
