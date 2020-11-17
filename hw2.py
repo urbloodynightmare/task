@@ -9,12 +9,12 @@ def quadratic_equation(a,b,c):
         return 'Нет корней'
 
 
-def linea_aquation(b,c):
+def linear_equation(b,c):
     return -c/b
 
 
 a,b,c = map(int,input().split())
 if a==0:
-    print(linea_aquation(b,c))
+    print(linear_equation(b,c))
 else:
     print(quadratic_equation(a,b,c))
